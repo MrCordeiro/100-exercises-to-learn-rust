@@ -13,16 +13,17 @@ mod tests {
 
     #[test]
     fn u16_ref_size() {
-        assert_eq!(size_of::<&u16>(), todo!());
+        // The size of a thin pointer is 8 bytes on a 64-bit system.
+        assert_eq!(size_of::<&u16>(), 8);
     }
 
     #[test]
     fn u64_mut_ref_size() {
-        assert_eq!(size_of::<&mut u64>(), todo!());
+        assert_eq!(size_of::<&u64>(), 8);
     }
 
     #[test]
     fn ticket_ref_size() {
-        assert_eq!(size_of::<&Ticket>(), todo!());
+        assert_eq!(size_of::<&Ticket>(), 8);
     }
 }
