@@ -27,11 +27,11 @@ impl Ticket {
         }
 
         if title.len() > 50 {
-            panic!("Title cannot be longer than 50 characters");
+            panic!("Title cannot be longer than 50 bytes");
         }
 
         if description.len() > 500 {
-            panic!("Description cannot be longer than 500 characters");
+            panic!("Description cannot be longer than 500 bytes");
         }
 
         match status.as_str() {
