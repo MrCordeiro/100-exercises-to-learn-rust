@@ -1,8 +1,24 @@
 // TODO: implement the necessary traits to make the test compile and pass.
 //  You *can't* modify the test.
 
+use std::ops::Add;
+
+// Clone is needed so we can implement Copy
+// Copy is needed so that we don't need to modify the test with y.clone()
+// Debug is needed for the assert_eq to understand how to print the information
+// PartialEq is needed so that the assert_eq can compare the objects
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WrappingU32 {
     value: u32,
+}
+
+//
+impl Add<WrappingU32> for WrappingU32 {
+    type Output = WrappingU32;
+
+    fn add(self, rhs: WrappingU32) -> Self::Output {
+        WrappingU32::new(self.value + rhs.value)
+    }
 }
 
 impl WrappingU32 {
